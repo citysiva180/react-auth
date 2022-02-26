@@ -1,20 +1,42 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 const CardComponent = ({ posts }) => {
   return (
-    <div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={posts.img} />
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
-    </div>
+    <Container style={{ display: "flex", justifyContent: "space-between" }}>
+      {posts.map((post) => (
+        <>
+          <Card
+            style={{
+              width: "18rem",
+              boxShadow: "10px 10px 39px 2px rgba(0,0,0,0.35);",
+              webkitBoxShadow: "0px -1px 5px 0px rgba(0,0,0,0.75)",
+              mozBoxShadow: "0px -1px 5px 0px rgba(0,0,0,0.75)",
+              border: "solid 0.1px lightgrey",
+            }}
+          >
+            <Card.Img
+              variant="top"
+              src={post.img}
+              style={{
+                width: "287px",
+                height: "180px",
+                objectFit: "cover",
+              }}
+            />
+            <Card.Body>
+              <Card.Title style={{ fontFamily: "'Noto Sans', sans-serif" }}>
+                {post.title}
+              </Card.Title>
+              <Card.Text>{post.desc}</Card.Text>
+              <Button style={{ backgroundColor: "#4682B4", color: "white" }}>
+                Read News
+              </Button>
+            </Card.Body>
+          </Card>
+          <br></br>
+        </>
+      ))}
+    </Container>
   );
 };
 
