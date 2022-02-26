@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "../../images/strangeLogo.png";
 import { Navbar, Container } from "react-bootstrap";
-const NavBar = () => {
+import { Link } from "react-router-dom";
+const NavBar = ({ user }) => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -12,26 +13,36 @@ const NavBar = () => {
             fontSize: "30px",
           }}
         >
-          <img
-            src={logo}
-            alt="dr.strangeLogo"
-            style={{
-              width: "50px",
-              height: "50px",
-              border: "solid gold 2px",
-              borderRadius: "50%",
-              objectFit: "cover",
-            }}
-          />
-          {"            "}
-          Something Strange!!
+          <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+            <img
+              src={logo}
+              alt="dr.strangeLogo"
+              style={{
+                width: "50px",
+                height: "50px",
+                border: "solid gold 2px",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
+            />
+            {"            "}
+            Something Strange!!
+          </Link>
         </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Logout : <a href="#login">DefenderStrangeD1203</a>
-          </Navbar.Text>
-        </Navbar.Collapse>
+        {user ? (
+          <>
+            <Navbar.Toggle />
+            <Navbar.Collapse className="justify-content-end">
+              <Navbar.Text>
+                Logout : <a href="#login">DefenderStrangeD1203</a>
+              </Navbar.Text>
+            </Navbar.Collapse>
+          </>
+        ) : (
+          <Link to="/login" style={{ color: "white", textDecoration: "none" }}>
+            Login
+          </Link>
+        )}
       </Container>
     </Navbar>
   );
