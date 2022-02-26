@@ -19,9 +19,9 @@ const HomePage = () => {
           fontFamily: "'Noto Sans', sans-serif",
         }}
       >
-        <h1 class="display-4">Welcome Master!</h1>
-        <p class="lead">Welcome to the MCU world of Mystic Arts!</p>
-        <hr class="my-4" />
+        <h1 className="display-4">Welcome Master!</h1>
+        <p className="lead">Welcome to the MCU world of Mystic Arts!</p>
+        <hr className="my-4" />
         <p>
           Soon you will master all the mystic arts to become the Sorceror
           Supreme!
@@ -35,6 +35,12 @@ const HomePage = () => {
           Learn Now!
         </a>
       </div>
+      <br></br>
+      <br></br>
+      <div style={{ textAlign: "center" }}>
+        <h1>LATEST POSTS</h1>
+      </div>
+      <br></br>
       <br></br>
       <CardComponent posts={posts}></CardComponent>
     </Container>
