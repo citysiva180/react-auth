@@ -1,8 +1,12 @@
 import React from "react";
 import logo from "../../images/strangeLogo.png";
-import { Navbar, Container } from "react-bootstrap";
+import { Navbar, Container, Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+// import profile from "../../images/DefenderStrange101.png";
 const NavBar = ({ user }) => {
+  const logout = () => {
+    window.open("http://localhost:5000/auth/logout", "_self");
+  };
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -33,9 +37,27 @@ const NavBar = ({ user }) => {
           <>
             <Navbar.Toggle />
             <Navbar.Collapse className="justify-content-end">
-              <Navbar.Text>
-                Logout : <a href="#login">DefenderStrangeD1203</a>
-              </Navbar.Text>
+              <Navbar.Text></Navbar.Text>
+              <Dropdown>
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                  <img
+                    src={user.photos[0].value}
+                    alt="strange-profile"
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: " 50%",
+                      objectFit: "cover",
+                    }}
+                  />{" "}
+                  {user.displayName}
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-2">Profile</Dropdown.Item>
+                  <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </Navbar.Collapse>
           </>
         ) : (
