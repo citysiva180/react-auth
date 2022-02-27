@@ -10,7 +10,7 @@ import NavBar from "./Components/utils/NavBar/NavBar";
 import PostPage from "./Components/PostPages/PostPage";
 import Login from "./Components/Login/Login";
 function App() {
-  const user = true;
+  const user = false;
 
   return (
     <div>
@@ -25,7 +25,7 @@ function App() {
           ></Route>
           <Route
             exact
-            path="/posts/:id"
+            path="/post/:id"
             element={user ? <PostPage></PostPage> : <Navigate to="/login" />}
           ></Route>
         </Routes>

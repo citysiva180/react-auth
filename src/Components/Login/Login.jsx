@@ -8,6 +8,9 @@ import {
   TwitterLoginButton,
 } from "react-social-login-buttons";
 const Login = () => {
+  const google = () => {
+    window.open("http://localhost:5000/auth/google", "_self");
+  };
   return (
     <Container>
       <br></br>
@@ -32,7 +35,7 @@ const Login = () => {
             </p>
             <div style={{ width: "100%", display: "flex" }}>
               <FacebookLoginButton onClick={() => alert("Hello")} />
-              <GoogleLoginButton onClick={() => alert("Hello")} />
+              <GoogleLoginButton onClick={google} />
               <TwitterLoginButton onClick={() => alert("Hello")} />
               <InstagramLoginButton onClick={() => alert("Hello")} />
             </div>

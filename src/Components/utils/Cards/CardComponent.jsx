@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const CardComponent = ({ posts }) => {
   return (
     <Container style={{ display: "flex", justifyContent: "space-between" }}>
@@ -29,7 +30,12 @@ const CardComponent = ({ posts }) => {
               </Card.Title>
               <Card.Text>{post.desc}</Card.Text>
               <Button style={{ backgroundColor: "#4682B4", color: "white" }}>
-                Read News
+                <Link
+                  to={`/post/${post.id}`}
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  Read News
+                </Link>
               </Button>
             </Card.Body>
           </Card>
